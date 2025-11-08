@@ -3,20 +3,20 @@ import java.sql.*;
 public class BankApp {
     public static void main(String[] args) {
         try {
-            // 1️⃣ Load JDBC Driver
+            // 1️ Load JDBC Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // 2️⃣ Connect to MySQL (update your password here)
+            // 2️ Connect to MySQL (update your password here)
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/bankdb", "root", "Suraj@sql1");
 
-            // 3️⃣ Insert a new record
+            // 3️ Insert a new record
             String insertQuery = "INSERT INTO customers (name, balance) VALUES ('Suraj', 5000)";
             Statement stmt = con.createStatement();
             stmt.executeUpdate(insertQuery);
             System.out.println(" Record Inserted!");
 
-            // 4️⃣ Display all customers
+            // 4️ Display all customers
             ResultSet rs = stmt.executeQuery("SELECT * FROM customers");
 
            while (rs.next()) {
@@ -33,3 +33,4 @@ public class BankApp {
         }
     }
 }
+
